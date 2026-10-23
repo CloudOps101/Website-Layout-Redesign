@@ -16,7 +16,7 @@ export default function ContactPage() {
     <>
       <section aria-labelledby="contact-title" className="grain relative overflow-hidden bg-cream">
         <div aria-hidden className="absolute -right-32 -top-32 size-[28rem] rounded-full bg-blue-100/80 blur-3xl" />
-        <div className="container-site relative pb-12 pt-14 md:pb-16 md:pt-20">
+        <div className="container-site relative pb-12 pt-14 md:pb-16 md:pt-20 lg:pb-28">
           <nav aria-label="Breadcrumb" className="mb-8 text-sm text-ink-soft">
             <ol className="flex gap-2">
               <li>
@@ -41,11 +41,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section aria-label="Contact details and form" className="bg-white pb-20 md:pb-28">
+      <section aria-label="Contact details and form" className="bg-white pb-20 pt-8 md:pb-28 lg:pt-0">
         <div className="container-site grid gap-10 lg:grid-cols-12 lg:gap-14">
           {/* Details */}
-          <aside className="space-y-5 lg:col-span-5 lg:-mt-6">
-            <div className="on-dark rounded-[var(--radius-xl)] bg-navy-900 p-8 text-white md:p-10">
+          <aside className="relative z-10 space-y-5 lg:col-span-5 lg:-mt-16">
+            <div className="on-dark rounded-[var(--radius-xl)] bg-navy-900 p-8 text-white shadow-[var(--shadow-lift)] ring-1 ring-white/10 md:p-10">
               <div className="flex items-center gap-4">
                 <span className="flex size-14 items-center justify-center rounded-full bg-gold-500 font-display text-lg font-semibold text-navy-950">
                   <User aria-hidden className="size-6" />
@@ -74,7 +74,10 @@ export default function ContactPage() {
                     </span>
                     <span className="min-w-0">
                       <span className="block text-sm text-white/70">Email</span>
-                      <span className="block break-all font-semibold group-hover:text-gold-300">{org.email}</span>
+                      <span className="block font-semibold [overflow-wrap:anywhere] group-hover:text-gold-300">
+                        {org.email.split("@")[0]}@<wbr />
+                        {org.email.split("@")[1]}
+                      </span>
                     </span>
                   </a>
                 </li>
