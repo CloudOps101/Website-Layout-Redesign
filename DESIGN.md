@@ -121,3 +121,4 @@ Brand navy and blue are **sampled directly from the PGCCDC logo**. Gold adds war
 6. **Online giving.** If wanted, choose a provider (e.g. Zeffy, PayPal Giving or Stripe) for the next milestone.
 7. **Contact form.** It currently opens the visitor's email app. A form service can be connected at launch.
 8. **NAIA flyer.** It states NAIA was "established through PGCCDC". Please confirm whether to keep the flyer image, given the due-diligence concern.
+9. **X (Twitter) link.** The current site links to `twitter.com/MuXpose`, but that account doesn't exist, so it was removed. Send the correct handle if there is one.

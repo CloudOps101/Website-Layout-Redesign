@@ -34,7 +34,6 @@ export const org = {
   social: [
     { label: "Facebook", href: "https://www.facebook.com/muzikxposeradio.1/" },
     { label: "Instagram", href: "https://www.instagram.com/muzikxposeradio/" },
-    { label: "X (Twitter)", href: "https://twitter.com/MuXpose" },
   ],
   listenLive: "https://muzikxpose.net/listen-live",
 };
