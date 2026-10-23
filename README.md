@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PGCCDC website redesign
 
-## Getting Started
+A new website for the **Prince George's County Community Development Corporation (PGCCDC)**. It replaces the current Squarespace site (princegeorges-countycdc.org) and is built with **Next.js 16, React 19 and Tailwind CSS 4**.
 
-First, run the development server:
+This is **Milestone 1: the interactive design mockup**. Every page is fully built, responsive and checked for accessibility, so the client reviews the real thing in a browser instead of a static picture.
+
+## Pages
+
+| Route | Page | Notes |
+| --- | --- | --- |
+| `/` | Home | Hero, programs bento, priorities, MID spotlight, radio, documentary, partners, get involved |
+| `/about` | About | Story, communities served, values, leadership and board |
+| `/programs` | Signature Programs | Overview of all four programs |
+| `/programs/medical-innovation-districts` | Medical Innovation Districts | "A Tale of Two Futures" rebuilt as accessible HTML; video placeholder |
+| `/programs/health-wellness-fitness` | Health, Wellness & Fitness | Includes Deep Roots Farm nutrition content |
+| `/programs/muzik-xpose-radio` | Muzik Xpose' Radio | Includes the Health Notes podcast |
+| `/programs/artist-in-residence` | Artist in Residence | Monty Ross and the Peterbug documentary trailer |
+| `/partnerships` | Strategic Partnerships | Deep Roots Farm, The National AI Academy, Monty Ross, Muzik Xpose' |
+| `/donate` | Donate | New page: give by check, plus other ways to give |
+| `/contact` | Contact | Contact details, form and map |
+| `/style-guide` | Style guide | Design documentation (not indexed by search engines) |
+
+Old Squarespace URLs (`/about-1`, `/projects-1`, etc.) redirect to the new pages. See `next.config.ts`.
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build (all pages are static)
+npm run lint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Editing content
 
-## Learn More
+- **Shared text** (organization details, programs, leadership, board, MID figures) lives in `src/content/site.ts`.
+- **Page-specific text** lives in each page file under `src/app/**/page.tsx`.
+- **Images** are optimised WebP files in `src/assets/img/`. `scripts/optimize-images.mjs` regenerates them. Stock photo credits are in `src/assets/img/CREDITS.md`.
+- **Design tokens** (colours, type scale, spacing) are in `src/app/globals.css`. They are documented on `/style-guide` and in `DESIGN.md`.
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/                 Routes (one folder per page), globals.css, layout
+  components/          Header, footer, UI kit, MID chart, video embed, forms
+  content/site.ts      Shared content
+  assets/img/          Optimised images
+scripts/               Image pipeline
+DESIGN.md              Design decisions and hand-off notes
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploying
 
-## Deploy on Vercel
+The site is built to deploy on **Vercel's free plan** under the client's own account:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Import this repository at vercel.com/new. The framework is detected automatically.
+2. Add the domain `princegeorges-countycdc.org` under **Project → Domains**.
+3. Update the DNS records shown by Vercel at the domain registrar.
+4. Remove `PreviewBar` from `src/app/layout.tsx` before going live.
