@@ -36,6 +36,16 @@ npm run build   # production build (all pages are static)
 npm run lint
 ```
 
+## HTML mockup
+
+`html-mockup/` is a plain HTML/CSS/JS copy of the site for review (deployed on Netlify). It is generated from the Next.js pages, so it matches them exactly:
+
+```bash
+npm run build:html
+```
+
+See `html-mockup/README.md`.
+
 ## Editing content
 
 - **Shared text** (organization details, programs, leadership, board, MID figures) lives in `src/content/site.ts`.
