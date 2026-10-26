@@ -79,7 +79,7 @@ Brand navy and blue are **sampled directly from the PGCCDC logo**. Gold adds war
 
 ## 6. Imagery
 
-- Real PGCCDC images are kept: the logo, the Monty Ross portrait, Deep Roots Farm, Health Notes, Muzik Xpose', the NAIA flyer, the MID infographic and the current stock photos.
+- Real PGCCDC images are kept: the logo, the Monty Ross portrait, Deep Roots Farm, Health Notes, Muzik Xpose', the NAIA flyer and the current stock photos.
 - Extra photos are from **Unsplash (free license)** and focus on Black residents and families, health, food and learning. Credits are in `src/assets/img/CREDITS.md`.
 - **Replace stock with the client's own community photos as they arrive.** Real photos will have the most impact.
 - All images are optimised WebP, served responsively by `next/image`, with blur-up placeholders and lazy loading.
@@ -91,7 +91,7 @@ Brand navy and blue are **sampled directly from the PGCCDC logo**. Gold adds war
 - The Programs mega-menu works by keyboard and closes with Escape. The mobile menu traps focus and returns it on close.
 - Tap targets are at least 44×44px.
 - Motion respects "reduce motion". The scrolling municipality list pauses on hover and focus.
-- The MID infographic's data is rebuilt as **real text and an accessible chart**, so screen-reader users get the full picture.
+- Key figures (such as the MID numbers) are **real text, not images**, so screen readers and search engines can read them.
 - Form fields have labels, required markers, inline errors, and focus moves to the first error.
 - External links announce "opens in a new tab".
 - Automated tools catch only part of WCAG. **A manual review with assistive technology is recommended before launch.**
@@ -122,3 +122,9 @@ Brand navy and blue are **sampled directly from the PGCCDC logo**. Gold adds war
 7. **Contact form.** It currently opens the visitor's email app. A form service can be connected at launch.
 8. **NAIA flyer.** It states NAIA was "established through PGCCDC". Please confirm whether to keep the flyer image, given the due-diligence concern.
 9. **X (Twitter) link.** The current site links to `twitter.com/MuXpose`, but that account doesn't exist, so it was removed. Send the correct handle if there is one.
+
+## 10. Client feedback log
+
+| Date | Feedback | Change |
+| --- | --- | --- |
+| 2026-10-26 | Executive Director: take out any reference to hyperscale data centers | Removed the data-center comparison, chart and infographic from the homepage and MID page. The MID is now presented on its own merits: jobs, local hiring, revenue, healthcare hub, training and clean energy. |

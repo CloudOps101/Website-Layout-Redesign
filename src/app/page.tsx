@@ -17,7 +17,6 @@ import {
 
 import { org, pillars, priorities, programs, municipalities } from "@/content/site";
 import { ArrowLink, ButtonLink, Eyebrow, SectionHeader } from "@/components/ui";
-import { MidComparison } from "@/components/mid-comparison";
 import { VideoEmbed } from "@/components/video-embed";
 
 import communityMeeting from "@/assets/img/community-meeting.webp";
@@ -359,16 +358,16 @@ function MidSpotlight() {
             eyebrow="Medical Innovation Districts"
             title={
               <>
-                A tale of two futures for <span className="italic text-gold-300">Prince George&apos;s County.</span>
+                Health care, careers and clean energy, <span className="italic text-gold-300">close to home.</span>
               </>
             }
-            intro="Faced with a proposed hyperscale data center, PGCCDC champions a community-centered alternative: a Medical Innovation District that delivers more jobs, more revenue and far less strain on the grid."
+            intro="PGCCDC champions a Medical Innovation District for Prince George's County: a healthcare hub, free workforce training and career-level jobs for local residents, powered by clean, on-site energy."
           />
           <ul data-reveal className="mt-10 grid grid-cols-2 gap-3 sm:gap-4">
             {[
               ["200-bed", "healthcare hub serving 125,000+ underserved residents"],
               ["1,200", "residents trained free each year in tech and healthcare"],
-              ["21,000+", "residents signed petitions opposing the data center"],
+              ["300 tons", "of daily waste turned into clean hydrogen fuel"],
               ["All 14", "County AI Task Force recommendations the MID aligns with"],
             ].map(([n, t]) => (
               <li key={n} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:p-5">
@@ -385,10 +384,22 @@ function MidSpotlight() {
         </div>
         <div className="rounded-[var(--radius-xl)] border border-white/10 bg-white/[0.04] p-7 backdrop-blur md:p-10">
           <h3 className="font-display text-2xl font-medium">By the numbers</h3>
-          <p className="mt-1 text-sm text-white/70">Hyperscale data center vs. Medical Innovation District</p>
-          <div className="mt-8">
-            <MidComparison light />
-          </div>
+          <p className="mt-1 text-sm text-white/70">What a Medical Innovation District brings to the county</p>
+          <dl data-reveal className="mt-8 divide-y divide-white/10">
+            {[
+              ["2,430+", "direct jobs created", "Career-level jobs with mandated local hiring."],
+              ["$76M", "projected annual tax revenue", "New revenue for Prince George's County."],
+              ["75%", "local hiring", "Of MID jobs reserved for county residents, including 40% from Landover."],
+            ].map(([n, t, d]) => (
+              <div key={t} className="py-6 first:pt-0 last:pb-0">
+                <dt className="eyebrow text-gold-300">{t}</dt>
+                <dd className="mt-2">
+                  <span className="block font-display text-5xl font-semibold leading-none">{n}</span>
+                  <span className="mt-2 block text-sm text-white/75">{d}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

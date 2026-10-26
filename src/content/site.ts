@@ -48,7 +48,7 @@ export const programs = [
     short: "MIDs",
     tag: "Economic & health development",
     summary:
-      "A community-centered alternative to hyperscale data centers: a healthcare hub, free workforce training and 2,430+ career-level local jobs.",
+      "A healthcare hub, free workforce training and 2,430+ career-level jobs with local hiring, powered by clean, on-site energy.",
     image: bloodPressure,
     alt: "A health worker checking an older man's blood pressure",
   },
@@ -189,29 +189,4 @@ export const board = [
     bio: "Linwood Ferguson holds a Bachelor's degree in Business from Howard University and a Master's degree in Business, with a concentration in economic development, from the University of Maryland. He is a Certified Public Accountant. He began his career as a financial analyst and consultant with several Big 8 accounting firms, then moved into higher education, teaching accounting at local universities.",
   },
 ];
-
-// Medical Innovation District figures, from the "A Tale of Two Futures" infographic.
-export const midComparison = [
-  {
-    label: "Direct jobs",
-    a: { value: 50, display: "50" },
-    b: { value: 2430, display: "2,430+" },
-    note: "Career-level jobs with mandated local hiring (40% Landover, 75% Prince George's County).",
-    better: "higher",
-  },
-  {
-    label: "Projected annual tax revenue",
-    a: { value: 16.9, display: "$16.9M" },
-    b: { value: 76, display: "$76M" },
-    note: "4.5 times more than the alternative.",
-    better: "higher",
-  },
-  {
-    label: "Power consumption",
-    a: { value: 820, display: "820 MW" },
-    b: { value: 75, display: "75 MW" },
-    note: "A 91% reduction in energy use compared to the hyperscale plan.",
-    better: "lower",
-  },
-] as const;
 

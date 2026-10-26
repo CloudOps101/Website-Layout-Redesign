@@ -289,7 +289,7 @@ export default function StyleGuidePage() {
               "Form fields have labels, required markers and clear errors",
               "External links announce that they open a new tab",
               "Video loads only on request, with a text summary",
-              "Infographic data repeated as real text",
+              "Key figures written as real text, not images",
             ].map((t) => (
               <li key={t} className="flex gap-3 rounded-xl bg-cream p-4 text-navy-900">
                 <Check aria-hidden className="mt-0.5 size-5 shrink-0 text-leaf-600" />

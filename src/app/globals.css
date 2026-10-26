@@ -179,15 +179,6 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* MID comparison bars grow when their block is revealed */
-.mid-bar {
-  width: var(--w);
-  min-width: 0.75rem;
-  transition: width 1.2s var(--ease-out-soft) var(--d, 0ms);
-}
-.js .mid-bars:not(.is-visible) .mid-bar { width: 0; }
-.mid-bar > span { overflow: visible; }
-
 /* Marquee pauses on hover/focus so it can be read (WCAG 2.2.2) */
 .marquee:hover .marquee-track,
 .marquee:focus-within .marquee-track { animation-play-state: paused; }

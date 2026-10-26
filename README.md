@@ -11,7 +11,7 @@ This is **Milestone 1: the interactive design mockup**. Every page is fully buil
 | `/` | Home | Hero, programs bento, priorities, MID spotlight, radio, documentary, partners, get involved |
 | `/about` | About | Story, communities served, values, leadership and board |
 | `/programs` | Signature Programs | Overview of all four programs |
-| `/programs/medical-innovation-districts` | Medical Innovation Districts | "A Tale of Two Futures" rebuilt as accessible HTML; video placeholder |
+| `/programs/medical-innovation-districts` | Medical Innovation Districts | Healthcare hub, jobs and components; video placeholder |
 | `/programs/health-wellness-fitness` | Health, Wellness & Fitness | Includes Deep Roots Farm nutrition content |
 | `/programs/muzik-xpose-radio` | Muzik Xpose' Radio | Includes the Health Notes podcast |
 | `/programs/artist-in-residence` | Artist in Residence | Monty Ross and the Peterbug documentary trailer |

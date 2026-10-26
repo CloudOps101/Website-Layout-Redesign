@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Building2, Factory, GraduationCap, Leaf, MonitorSmartphone, Recycle, Users, Zap } from "lucide-react";
+import { Building2, Check, GraduationCap, HeartPulse, MonitorSmartphone, Recycle, Users } from "lucide-react";
 
 import { CtaBand, Eyebrow, PageHero, SectionHeader } from "@/components/ui";
-import { MidComparison } from "@/components/mid-comparison";
 
 import medicalTeam from "@/assets/img/medical-team.webp";
-import midInfographic from "@/assets/img/mid-infographic.webp";
 import nursePortrait from "@/assets/img/nurse-portrait.webp";
 
 export const metadata: Metadata = {
   title: "Medical Innovation Districts",
   description:
-    "A Medical Innovation District would create 2,430+ local jobs and $76M in annual tax revenue, using 91% less energy than a hyperscale data center.",
+    "A Medical Innovation District would bring a 200-bed healthcare hub, free workforce training and 2,430+ career-level jobs with local hiring to Prince George's County.",
 };
 
 const components = [
@@ -45,10 +43,10 @@ export default function MidPage() {
         eyebrow="Medical Innovation Districts"
         title={
           <>
-            Prince George&apos;s County: <span className="italic text-gold-300">a tale of two futures.</span>
+            Health care, careers and clean energy, <span className="italic text-gold-300">close to home.</span>
           </>
         }
-        intro="PGCCDC champions a Medical Innovation District (MID), a community-centered alternative to a hyperscale data center that puts health care, careers and clean energy in our neighborhoods."
+        intro="PGCCDC champions a Medical Innovation District (MID) in Prince George's County: a healthcare hub, free workforce training and career-level jobs for local residents, powered by clean, on-site energy."
         image={medicalTeam}
         alt="A team of doctors and nurses walking down a bright hospital corridor"
         crumbs={[{ label: "Signature Programs", href: "/programs" }]}
@@ -61,7 +59,7 @@ export default function MidPage() {
             {[
               ["2,430+", "direct jobs with mandated local hiring"],
               ["$76M", "projected annual tax revenue"],
-              ["91%", "less energy than the hyperscale plan"],
+              ["1,200", "residents trained free every year"],
               ["125,000+", "underserved residents served"],
             ].map(([n, l], i) => (
               <div key={l} className={`p-7 md:p-8 ${i ? "border-t border-line sm:border-t-0 sm:border-l" : ""}`}>
@@ -76,74 +74,58 @@ export default function MidPage() {
         </div>
       </section>
 
-      {/* Two options */}
-      <section aria-labelledby="options-title" className="section-y bg-white">
-        <div className="container-site">
-          <SectionHeader
-            id="options-title"
-            eyebrow="The choice"
-            title="Two very different futures for the same land."
-            intro="The county is weighing what to build. Here is how a hyperscale data center compares with a Medical Innovation District."
-          />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <article data-reveal className="rounded-[var(--radius-lg)] border border-line bg-cream p-8 md:p-10">
-              <div className="flex items-center gap-4">
-                <span className="flex size-14 items-center justify-center rounded-2xl bg-navy-700 text-white">
-                  <Factory aria-hidden className="size-6" />
-                </span>
-                <div>
-                  <p className="eyebrow text-ink-soft">Option A</p>
-                  <h3 className="font-display text-2xl font-medium text-navy-900">Hyperscale data center</h3>
-                </div>
-              </div>
-              <ul className="mt-8 space-y-5">
-                <Fact n="50" t="jobs created" d="Primarily technical roles with minimal direct community employment." />
-                <Fact n="$16.9M" t="projected annual tax revenue" />
-                <Fact n="820 MW" t="power usage" d="Places a massive strain on the local energy grid." />
-                <Fact n="21,000+" t="residents opposed" d="Significant community opposition expressed through signed petitions." />
-              </ul>
-            </article>
-            <article data-reveal style={{ "--reveal-delay": "120ms" } as React.CSSProperties} className="on-dark relative overflow-hidden rounded-[var(--radius-lg)] bg-navy-900 p-8 text-white md:p-10">
-              <div aria-hidden className="absolute -right-16 -top-16 size-56 rounded-full bg-gold-500/20 blur-3xl" />
-              <div className="relative flex items-center gap-4">
-                <span className="flex size-14 items-center justify-center rounded-2xl bg-gold-500 text-navy-950">
-                  <Leaf aria-hidden className="size-6" />
-                </span>
-                <div>
-                  <p className="eyebrow text-gold-300">Option B · Recommended</p>
-                  <h3 className="font-display text-2xl font-medium">Medical Innovation District</h3>
-                </div>
-              </div>
-              <ul className="relative mt-8 space-y-5">
-                <Fact light n="2,430+" t="direct jobs created" d="Career-level jobs with mandated local hiring: 40% Landover, 75% Prince George's County." />
-                <Fact light n="$76M" t="projected annual tax revenue" d="4.5 times more than the alternative." />
-                <Fact light n="75 MW" t="power usage" d="A 91% reduction in energy consumption compared to the hyperscale plan." />
-                <Fact light n="All 14" t="County AI Task Force recommendations" d="A community-centered solution that aligns with every recommendation." />
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Bars */}
-      <section aria-labelledby="numbers-title" className="section-y grain bg-sand">
-        <div className="container-site grid gap-12 lg:grid-cols-12">
+      {/* What the MID delivers */}
+      <section aria-labelledby="delivers-title" className="section-y bg-white">
+        <div className="container-site grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeader
-              id="numbers-title"
-              eyebrow="By the numbers"
-              title="More jobs. More revenue. Far less power."
-              intro="Side by side, the Medical Innovation District delivers more for residents on every measure that matters."
+              id="delivers-title"
+              eyebrow="What the MID delivers"
+              title="Good jobs and better care, built around residents."
+              intro="A Medical Innovation District brings health care, training and career-level jobs into the heart of the community, with hiring commitments that keep opportunity local."
             />
+            <dl data-reveal className="mt-10 grid grid-cols-2 gap-4">
+              {[
+                ["75%", "of hires from Prince George's County"],
+                ["40%", "of hires from Landover"],
+              ].map(([n, l]) => (
+                <div key={l} className="rounded-2xl bg-blue-50 p-5">
+                  <dt className="sr-only">{l}</dt>
+                  <dd>
+                    <span className="block font-display text-4xl font-semibold text-blue-700">{n}</span>
+                    <span className="mt-1 block text-sm leading-snug text-ink-soft">{l}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          <div className="rounded-[var(--radius-xl)] bg-white p-7 shadow-[var(--shadow-soft)] md:p-10 lg:col-span-7">
-            <MidComparison />
-          </div>
+          <article
+            data-reveal
+            style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
+            className="on-dark relative overflow-hidden rounded-[var(--radius-xl)] bg-navy-900 p-8 text-white md:p-10 lg:col-span-7"
+          >
+            <div aria-hidden className="absolute -right-16 -top-16 size-56 rounded-full bg-gold-500/20 blur-3xl" />
+            <div className="relative flex items-center gap-4">
+              <span className="flex size-14 items-center justify-center rounded-2xl bg-gold-500 text-navy-950">
+                <HeartPulse aria-hidden className="size-6" />
+              </span>
+              <div>
+                <p className="eyebrow text-gold-300">At a glance</p>
+                <h3 className="font-display text-2xl font-medium">Medical Innovation District</h3>
+              </div>
+            </div>
+            <ul className="relative mt-8 space-y-5">
+              <Fact light n="2,430+" t="direct jobs created" d="Career-level jobs with mandated local hiring: 40% Landover, 75% Prince George's County." />
+              <Fact light n="$76M" t="projected annual tax revenue" d="New revenue for Prince George's County." />
+              <Fact light n="200-bed" t="healthcare hub" d="A hospital and specialty clinics serving 125,000+ underserved residents." />
+              <Fact light n="All 14" t="County AI Task Force recommendations" d="A community-centered solution that aligns with every recommendation." />
+            </ul>
+          </article>
         </div>
       </section>
 
       {/* Components */}
-      <section aria-labelledby="components-title" className="section-y bg-white">
+      <section aria-labelledby="components-title" className="section-y grain bg-sand">
         <div className="container-site">
           <SectionHeader
             id="components-title"
@@ -156,7 +138,7 @@ export default function MidPage() {
                 key={c.title}
                 data-reveal
                 style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-                className="rounded-[var(--radius-lg)] border border-line p-7 transition duration-500 hover:-translate-y-1 hover:border-gold-500 hover:shadow-[var(--shadow-lift)]"
+                className="rounded-[var(--radius-lg)] border border-line bg-white p-7 transition duration-500 hover:-translate-y-1 hover:border-gold-500 hover:shadow-[var(--shadow-lift)]"
               >
                 <span className="flex size-14 items-center justify-center rounded-2xl bg-gold-100 text-gold-600">
                   <c.icon aria-hidden className="size-6" />
@@ -169,7 +151,7 @@ export default function MidPage() {
         </div>
       </section>
 
-      {/* Community + infographic */}
+      {/* Community */}
       <section aria-labelledby="community-title" className="section-y bg-cream">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="relative" data-reveal>
@@ -190,26 +172,22 @@ export default function MidPage() {
               Careers, care and clean power, <span className="italic text-blue-600">for the people who live here.</span>
             </h2>
             <p className="text-lead mt-5 text-ink-soft">
-              More than 21,000 residents have signed petitions against the hyperscale data center. The MID answers
-              that call with good jobs, a healthcare hub and a 91% smaller energy footprint.
+              Every part of the MID is designed with residents in mind, so the benefits stay in Prince George&apos;s
+              County.
             </p>
-
-            <figure className="mt-10 overflow-hidden rounded-[var(--radius-lg)] border border-line bg-white">
-              <a href={midInfographic.src} target="_blank" rel="noopener noreferrer" className="group block">
-                <Image
-                  src={midInfographic}
-                  alt="Infographic comparing a hyperscale data center (50 jobs, $16.9 million tax revenue, 820 megawatts) with a Medical Innovation District (2,430+ jobs, $76 million tax revenue, 75 megawatts). All figures are listed on this page."
-                  placeholder="blur"
-                  sizes="(min-width:1024px) 45vw, 100vw"
-                  className="w-full transition duration-500 group-hover:opacity-90"
-                />
-                <span className="sr-only">(opens full-size infographic in a new tab)</span>
-              </a>
-              <figcaption className="flex items-center justify-between gap-4 p-4 text-sm text-ink-soft">
-                <span>“Prince George&apos;s County: A Tale of Two Futures” infographic</span>
-                <Zap aria-hidden className="size-4 shrink-0 text-gold-600" />
-              </figcaption>
-            </figure>
+            <ul className="mt-8 space-y-4">
+              {[
+                "Career-level jobs with mandated local hiring commitments",
+                "A hospital and specialty clinics for neighborhoods that need them most",
+                "Free tech and healthcare training that leads to guaranteed interviews",
+                "Clean hydrogen fuel made on-site from 300 tons of daily waste",
+              ].map((t) => (
+                <li key={t} className="flex gap-3 text-lg text-navy-900">
+                  <Check aria-hidden className="mt-1.5 size-5 shrink-0 text-leaf-600" />
+                  {t}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

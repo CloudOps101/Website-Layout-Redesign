@@ -14,7 +14,6 @@ const local = {
   "deep-roots-logo": "_crawl/img/deeproots.jpg",
   "health-notes": "_crawl/img/health.jpg",
   "naia-flyer": "_crawl/img/naia.jpg",
-  "mid-infographic": "_crawl/img/mid.png",
   "muzik-xpose-logo": "_crawl/img/muzik.jpg",
   // Vimeo poster frame of the documentary trailer (vimeo.com/1121020185)
   "documentary-poster": "_crawl/img/doc-poster.jpg",
