@@ -151,6 +151,7 @@ export const priorities: { title: string; text: string; image: StaticImageData; 
   },
 ];
 
+// Archived profiles (removed from the site, kept for later) live in ./archive.ts
 export const leadership = [
   {
     name: "Michael Tolson Banner, MBA",
@@ -159,15 +160,6 @@ export const leadership = [
     bio: [
       "Michael Tolson Banner has been a community-oriented and civic-minded resident of Prince George's County for over 20 years. He attended Langston University and graduated magna cum laude from Clark Atlanta University with a BA in Communications. He went on to earn an MBA from Howard University's Graduate School of Business and holds a Series 7 license as a stockbroker.",
       "Banner currently serves as National Construction Contract Administrator with NTERSECTION, LLC, and has also worked as a Senior Contracts Specialist with several federal agencies. He is the creator of MuzikXpose.net, a digital Black streaming music and news network showcasing the lifestyles of Prince George's County and Black America. Banner is also a recent graduate of the Prince George's County Neighborhood Planning Academy.",
-    ],
-  },
-  {
-    name: "Tanya Bender Henderson, PhD, MBA",
-    role: "Deputy Director / Chief Operating Officer",
-    initials: "TH",
-    bio: [
-      "Tanya Bender Henderson, PhD, MBA, has built a dual career spanning Marketing Communications and Public Health. She has served as Director of Public Relations for a historically Black academic health institution, Project Director for a national capacity-building organization, and program developer for chronic disease management initiatives across both nonprofit and government sectors.",
-      "Dr. Henderson holds a PhD in Organizational Communication and an MBA from Howard University, and a BS in Advertising and Public Relations from Middle Tennessee State University. She has also pursued advanced study and research in HIV Science and Treatment at the University of California, Los Angeles, and in Human Sexuality at the University of California, San Francisco.",
     ],
   },
 ];

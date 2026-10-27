@@ -128,3 +128,4 @@ Brand navy and blue are **sampled directly from the PGCCDC logo**. Gold adds war
 | Date | Feedback | Change |
 | --- | --- | --- |
 | 2026-10-26 | Executive Director: take out any reference to hyperscale data centers | Removed the data-center comparison, chart and infographic from the homepage and MID page. The MID is now presented on its own merits: jobs, local hiring, revenue, healthcare hub, training and clean energy. |
+| 2026-10-27 | Temporarily remove the Deputy Director/COO profile from About, keeping it to add back later | Profile removed from the site and saved, unpublished, in `src/content/archive.ts`. Leadership shows a single wide card. To restore, move it back into `leadership` in `src/content/site.ts`. |

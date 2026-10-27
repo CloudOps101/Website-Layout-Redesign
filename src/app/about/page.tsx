@@ -16,6 +16,8 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  // One leader gets a wide card instead of half of a two-column row
+  const single = leadership.length === 1;
   return (
     <>
       <PageHero
@@ -115,17 +117,23 @@ export default function AboutPage() {
       <section aria-labelledby="leadership-title" className="section-y bg-sand">
         <div className="container-site">
           <SectionHeader id="leadership-title" eyebrow="Leadership" title="The people behind PGCCDC." />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <div className={`mt-12 grid gap-6 ${single ? "" : "lg:grid-cols-2"}`}>
             {leadership.map((p) => (
-              <article key={p.name} data-reveal className="flex flex-col rounded-[var(--radius-lg)] bg-white p-8 shadow-[var(--shadow-soft)] md:p-10">
-                <div className="flex items-center gap-5">
+              <article
+                key={p.name}
+                data-reveal
+                className={`rounded-[var(--radius-lg)] bg-white p-8 shadow-[var(--shadow-soft)] md:p-10 ${
+                  single ? "lg:grid lg:grid-cols-[18rem_1fr] lg:gap-12" : "flex flex-col"
+                }`}
+              >
+                <div className={`flex items-center gap-5 ${single ? "lg:flex-col lg:items-start" : ""}`}>
                   <Avatar initials={p.initials} large />
                   <div>
                     <h3 className="font-display text-2xl font-medium leading-tight text-navy-900">{p.name}</h3>
                     <p className="mt-1 font-semibold text-blue-700">{p.role}</p>
                   </div>
                 </div>
-                <div className="mt-6 space-y-4 text-ink-soft">
+                <div className={`mt-6 space-y-4 text-ink-soft ${single ? "lg:mt-0 lg:text-lg" : ""}`}>
                   {p.bio.map((para) => (
                     <p key={para.slice(0, 24)}>{para}</p>
                   ))}
