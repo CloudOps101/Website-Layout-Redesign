@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "build:html": "next build && node scripts/build-html-mockup.mjs"
+    "build:html": "node scripts/build-html-mockup.mjs --build"
   },
   "dependencies": {
     "lucide-react": "^1.61.0",

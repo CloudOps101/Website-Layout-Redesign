@@ -13,6 +13,7 @@ import produceBasket from "@/assets/img/produce-basket.webp";
 import deepRootsLogo from "@/assets/img/deep-roots-logo.webp";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/programs/health-wellness-fitness" },
   title: "Health, Wellness & Fitness",
   description:
     "Health education on cardiovascular health, diabetes and brain health, fitness programming and locally sourced, organic food through our partner Deep Roots Farm.",

@@ -7,6 +7,7 @@ import { ContactForm } from "@/components/contact-form";
 import { SocialIcon } from "@/components/social-icon";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description: `Get in touch with ${org.short}. ${org.address.line1}, ${org.address.line2}. ${org.phone}.`,
 };

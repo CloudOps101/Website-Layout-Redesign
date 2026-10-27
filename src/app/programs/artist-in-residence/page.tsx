@@ -11,6 +11,7 @@ import montyRoss from "@/assets/img/monty-ross.webp";
 import documentaryPoster from "@/assets/img/documentary-poster.webp";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/programs/artist-in-residence" },
   title: "Artist in Residence",
   description:
     "Filmmaker-in-Residence Monty Ross, co-founder of 40 Acres & A Mule Filmworks, and the documentary “Let Me Put This BUG In Your Ear: The John ‘Peterbug’ Matthews Story.”",

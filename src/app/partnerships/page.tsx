@@ -15,6 +15,7 @@ import montyRoss from "@/assets/img/monty-ross.webp";
 import muzikLogo from "@/assets/img/muzik-xpose-logo.webp";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/partnerships" },
   title: "Strategic Partnerships",
   description:
     "PGCCDC partners with organizations that share our commitment to healthier, more prosperous neighborhoods in Prince George's County.",

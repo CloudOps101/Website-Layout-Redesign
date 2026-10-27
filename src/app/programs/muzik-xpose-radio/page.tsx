@@ -11,6 +11,7 @@ import muzikLogo from "@/assets/img/muzik-xpose-logo.webp";
 import healthNotes from "@/assets/img/health-notes.webp";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/programs/muzik-xpose-radio" },
   title: "Muzik Xpose' Radio",
   description:
     "The Nation's premier Black Muzik streaming network and Voice of Prince George's County. Home of the Health Notes podcast.",

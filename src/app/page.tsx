@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -29,6 +30,10 @@ import naiaLogo from "@/assets/img/naia-logo.webp";
 import deepRootsLogo from "@/assets/img/deep-roots-logo.webp";
 import muzikLogo from "@/assets/img/muzik-xpose-logo.webp";
 import montyRoss from "@/assets/img/monty-ross.webp";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   return (

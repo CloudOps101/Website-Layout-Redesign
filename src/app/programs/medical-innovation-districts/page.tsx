@@ -8,6 +8,7 @@ import medicalTeam from "@/assets/img/medical-team.webp";
 import nursePortrait from "@/assets/img/nurse-portrait.webp";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/programs/medical-innovation-districts" },
   title: "Medical Innovation Districts",
   description:
     "A Medical Innovation District would bring a 200-bed healthcare hub, free workforce training and 2,430+ career-level jobs with local hiring to Prince George's County.",

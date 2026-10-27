@@ -9,6 +9,7 @@ import { CtaBand, PageHero } from "@/components/ui";
 import gardenPlanting from "@/assets/img/garden-planting.webp";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/programs" },
   title: "Signature Programs",
   description:
     "PGCCDC's signature programs: Medical Innovation Districts, Health, Wellness & Fitness, Muzik Xpose' Radio and Artist in Residence.",

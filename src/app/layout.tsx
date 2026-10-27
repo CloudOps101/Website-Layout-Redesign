@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { PreviewBar } from "@/components/preview-bar";
 import { RevealObserver } from "@/components/reveal";
 import { org } from "@/content/site";
+import { siteUrl } from "@/content/site-url";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -22,7 +23,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.princegeorges-countycdc.org"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${org.short} | ${org.name}`,
     template: `%s | ${org.short}`,
@@ -30,7 +31,13 @@ export const metadata: Metadata = {
   description: org.summary,
   openGraph: {
     type: "website",
+    locale: "en_US",
     siteName: org.name,
+    title: `${org.short} | ${org.tagline}`,
+    description: org.summary,
+  },
+  twitter: {
+    card: "summary_large_image",
     title: `${org.short} | ${org.tagline}`,
     description: org.summary,
   },
@@ -38,6 +45,30 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#002552",
+};
+
+// Organization details for search engines (schema.org)
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: org.name,
+  alternateName: org.short,
+  url: siteUrl,
+  logo: `${siteUrl}/logo-pgccdc.png`,
+  description: org.summary,
+  slogan: org.tagline,
+  email: org.email,
+  telephone: "+1-202-413-6431",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: org.address.line1,
+    addressLocality: "Upper Marlboro",
+    addressRegion: "MD",
+    postalCode: "20772",
+    addressCountry: "US",
+  },
+  areaServed: { "@type": "AdministrativeArea", name: "Prince George's County, Maryland" },
+  sameAs: org.social.map((s) => s.href),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -54,6 +85,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to main content
         </a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }}
+        />
         <PreviewBar />
         <SiteHeader />
         <main id="main" className="flex-1">

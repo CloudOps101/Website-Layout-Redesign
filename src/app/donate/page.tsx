@@ -12,6 +12,7 @@ import entrepreneurCoaching from "@/assets/img/entrepreneur-coaching.webp";
 import communityMeeting from "@/assets/img/community-meeting.webp";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/donate" },
   title: "Donate",
   description:
     "Support PGCCDC's work in Prince George's County. Give by check, or contact us about other ways to give.",

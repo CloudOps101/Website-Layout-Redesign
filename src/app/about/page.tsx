@@ -10,6 +10,7 @@ import communityGarden from "@/assets/img/community-garden.webp";
 import seniorsWalking from "@/assets/img/seniors-walking.webp";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About",
   description: org.mission,
 };

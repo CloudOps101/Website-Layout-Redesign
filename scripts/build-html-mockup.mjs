@@ -7,10 +7,13 @@
 //   - replaces /_next/image URLs with pre-sized WebP files
 //   - adds the mobile menu markup and a small vanilla JS file (main.js)
 //
-// Usage: npm run build && node scripts/build-html-mockup.mjs
+// Usage: npm run build:html
+//   (runs `next build` with SITE_URL set to the Netlify address, then this script).
+//   Set MOCKUP_URL to change the address used in social-share tags.
 import sharp from "sharp";
 import { cp, mkdir, readFile, readdir, rm, writeFile, copyFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { execSync } from "node:child_process";
 import path from "node:path";
 
 sharp.cache(false);
@@ -35,6 +38,12 @@ const routes = [
   ["_not-found.html", "/404"],
 ];
 
+const MOCKUP_URL = (process.env.MOCKUP_URL ?? "https://pgccdc-mockup.netlify.app").replace(/\/$/, "");
+if (process.argv.includes("--build")) {
+  // Social images and canonical links must be absolute, so build against the mockup's own address
+  execSync("npx next build", { stdio: "inherit", env: { ...process.env, SITE_URL: MOCKUP_URL } });
+}
+
 if (!existsSync(path.join(APP, "index.html"))) {
   console.error("No pre-rendered pages found. Run `npm run build` first.");
   process.exit(1);
@@ -48,7 +57,10 @@ await mkdir(`${OUT}/assets/js`, { recursive: true });
 
 /* ---------- Static files ---------- */
 for (const f of await readdir("public")) await copyFile(`public/${f}`, `${OUT}/${f}`);
-await copyFile("src/app/favicon.ico", `${OUT}/favicon.ico`);
+// Icons and the social-share image, as Next.js generated them
+for (const f of ["favicon.ico", "icon.png", "apple-icon.png", "opengraph-image.jpg"]) {
+  await copyFile(path.join(APP, `${f}.body`), `${OUT}/${f}`);
+}
 await copyFile("scripts/html-mockup/main.js", `${OUT}/assets/js/main.js`);
 for (const f of await readdir(MEDIA)) {
   if (f.endsWith(".woff2")) await copyFile(`${MEDIA}/${f}`, `${OUT}/assets/fonts/${f}`);
@@ -117,7 +129,8 @@ for (const [file, route] of routes) {
 
   // Stylesheets and favicon
   html = await replaceAsync(html, /<link rel="stylesheet" href="([^"]+)"[^>]*\/?>/g, async (_, href) => `<link rel="stylesheet" href="${await cssFor(href)}"/>`);
-  html = html.replace(/<link rel="icon"[^>]*\/?>/, '<link rel="icon" href="/favicon.ico" sizes="48x48" type="image/x-icon"/>');
+  // Icon and social-image URLs carry a cache-busting query; the static files don't need it
+  html = html.replace(/((?:favicon\.ico|icon\.png|apple-icon\.png|opengraph-image\.jpg))\?[^"]+/g, "$1");
 
   // Images: srcSet -> pre-sized variants, src -> mapped file, drop blur placeholders
   html = await replaceAsync(html, /srcSet="([^"]+)"/g, async (_, set) => {
@@ -174,6 +187,8 @@ await writeFile(
   ].join("\n"),
 );
 await cp("scripts/html-mockup/README.md", `${OUT}/README.md`);
+// The mockup is a review copy: keep it out of search results
+await writeFile(`${OUT}/robots.txt`, "User-agent: *\nDisallow: /\n");
 // Netlify (when deployed from Git with base directory "html-mockup"): plain static files, no build
 await writeFile(`${OUT}/netlify.toml`, `[build]
   publish = "."
