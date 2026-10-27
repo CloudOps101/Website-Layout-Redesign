@@ -61,7 +61,11 @@ for (const f of await readdir("public")) await copyFile(`public/${f}`, `${OUT}/$
 for (const f of ["favicon.ico", "icon.png", "apple-icon.png", "opengraph-image.jpg"]) {
   await copyFile(path.join(APP, `${f}.body`), `${OUT}/${f}`);
 }
-await copyFile("scripts/html-mockup/main.js", `${OUT}/assets/js/main.js`);
+// Contact form key (same variable as the Next.js site); empty keeps the email-app fallback
+const envFile = existsSync(".env.local") ? await readFile(".env.local", "utf8") : "";
+const formKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? envFile.match(/^NEXT_PUBLIC_WEB3FORMS_KEY=(.*)$/m)?.[1]?.trim() ?? "";
+await writeFile(`${OUT}/assets/js/main.js`, (await readFile("scripts/html-mockup/main.js", "utf8")).replace("__WEB3FORMS_KEY__", formKey));
+if (!formKey) console.log("note: NEXT_PUBLIC_WEB3FORMS_KEY not set, contact form will open the email app");
 for (const f of await readdir(MEDIA)) {
   if (f.endsWith(".woff2")) await copyFile(`${MEDIA}/${f}`, `${OUT}/assets/fonts/${f}`);
 }

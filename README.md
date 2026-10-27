@@ -53,6 +53,17 @@ See `html-mockup/README.md`.
 - **Images** are optimised WebP files in `src/assets/img/`. `scripts/optimize-images.mjs` regenerates them. Stock photo credits are in `src/assets/img/CREDITS.md`.
 - **Design tokens** (colours, type scale, spacing) are in `src/app/globals.css`. They are documented on `/style-guide` and in `DESIGN.md`.
 
+## Contact form
+
+Messages are delivered by [Web3Forms](https://web3forms.com) straight from the browser (no server code).
+
+1. Create a free access key at web3forms.com using the inbox that should receive messages.
+2. Locally: copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_WEB3FORMS_KEY`.
+3. On Vercel: **Settings → Environment Variables** → add `NEXT_PUBLIC_WEB3FORMS_KEY`, then redeploy.
+4. For the HTML mockup, `npm run build:html` picks the key up from the environment or `.env.local`.
+
+Without a key the form still works: it opens the visitor's email app with the message filled in. A hidden "honeypot" field filters out spam bots.
+
 ## SEO and sharing
 
 - `src/app/sitemap.ts` and `src/app/robots.ts` generate `/sitemap.xml` and `/robots.txt`.

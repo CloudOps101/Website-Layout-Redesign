@@ -5,6 +5,8 @@
   "use strict";
 
   var ORG_EMAIL = "tolsonbanner@princegeorges-countycdc.org";
+  // Web3Forms access key, inserted by build-html-mockup.mjs. Empty = open the email app instead.
+  var FORM_KEY = "";
   var VIMEO_ID = "1121020185";
 
   /* ---------- Sticky header shadow on scroll ---------- */
@@ -131,25 +133,69 @@
   var form = document.querySelector("form[novalidate]");
   if (form) {
     var errorClass = "mt-2 text-sm font-semibold text-red-700";
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var idleLabel = submitBtn.innerHTML;
     var setError = function (input, message) {
-      var id = input.id + "-err";
-      var existing = document.getElementById(id);
+      var errId = input.id + "-err";
+      var existing = document.getElementById(errId);
       if (existing) existing.remove();
       if (message) {
         var p = document.createElement("p");
-        p.id = id;
+        p.id = errId;
         p.className = errorClass;
         p.textContent = message;
         input.insertAdjacentElement("afterend", p);
         input.setAttribute("aria-invalid", "true");
-        input.setAttribute("aria-describedby", id);
+        input.setAttribute("aria-describedby", errId);
       } else {
         input.setAttribute("aria-invalid", "false");
         input.removeAttribute("aria-describedby");
       }
     };
+    var clearAlert = function () {
+      var a = form.querySelector('[role="alert"]');
+      if (a) a.remove();
+    };
+    var showAlert = function () {
+      clearAlert();
+      var a = document.createElement("div");
+      a.setAttribute("role", "alert");
+      a.className = "flex gap-3 rounded-xl border-2 border-red-200 bg-red-50 p-4 text-sm text-red-800";
+      a.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 size-5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>' +
+        "<p>Sorry, your message couldn't be sent. Please try again, or email us directly at " +
+        '<a class="font-semibold underline" href="mailto:' + ORG_EMAIL + '">' + ORG_EMAIL + "</a>.</p>";
+      submitBtn.insertAdjacentElement("beforebegin", a);
+    };
+    var setSending = function (on) {
+      submitBtn.disabled = on;
+      form.setAttribute("aria-busy", String(on));
+      submitBtn.innerHTML = on
+        ? 'Sending… <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 animate-spin" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>'
+        : idleLabel;
+    };
+    var showDone = function (sentTo) {
+      var done = document.createElement("div");
+      done.setAttribute("role", "status");
+      done.className = "flex flex-col items-start gap-4 rounded-[var(--radius-lg)] bg-leaf-100 p-8";
+      var text = sentTo
+        ? "Your message has been sent. We'll reply to <strong class=\"text-navy-900\"></strong> as soon as we can."
+        : 'Your email app should open with your message ready to send. If it didn\'t, email us directly at <a class="font-semibold text-blue-700 underline" href="mailto:' + ORG_EMAIL + '">' + ORG_EMAIL + "</a>.";
+      done.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-10 text-leaf-700" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>' +
+        '<h3 class="font-display text-2xl font-medium text-navy-900">Thank you for reaching out!</h3>' +
+        '<p class="text-ink-soft">' + text + "</p>" +
+        '<button type="button" class="min-h-11 font-bold text-blue-700 underline underline-offset-4">Send another message</button>';
+      if (sentTo) done.querySelector("strong").textContent = sentTo; // text only, never HTML
+      done.querySelector("button").addEventListener("click", function () {
+        done.replaceWith(form);
+      });
+      form.replaceWith(done);
+    };
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (submitBtn.disabled) return;
       var f = form.elements;
       var name = f.name.value.trim();
       var email = f.email.value.trim();
@@ -167,23 +213,46 @@
         if (pair[1] && !firstBad) firstBad = pair[0];
       });
       if (firstBad) { firstBad.focus(); return; }
+      clearAlert();
 
-      var body = message + "\n\n" + name + "\n" + email + (phone ? "\n" + phone : "");
-      window.location.href = "mailto:" + ORG_EMAIL + "?subject=" + encodeURIComponent("Website: " + topic) + "&body=" + encodeURIComponent(body);
+      // Spam bots fill in the hidden field; quietly pretend it worked
+      if (f.botcheck && f.botcheck.checked) return showDone(email);
 
-      var done = document.createElement("div");
-      done.setAttribute("role", "status");
-      done.className = "flex flex-col items-start gap-4 rounded-[var(--radius-lg)] bg-leaf-100 p-8";
-      done.innerHTML =
-        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-10 text-leaf-700" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>' +
-        '<h3 class="font-display text-2xl font-medium text-navy-900">Thank you for reaching out!</h3>' +
-        '<p class="text-ink-soft">Your email app should open with your message ready to send. If it didn\'t, email us directly at <a class="font-semibold text-blue-700 underline" href="mailto:' + ORG_EMAIL + '">' + ORG_EMAIL + "</a>.</p>" +
-        '<button type="button" class="min-h-11 font-bold text-blue-700 underline underline-offset-4">Send another message</button>';
-      done.querySelector("button").addEventListener("click", function () {
-        done.replaceWith(form);
-        form.reset();
-      });
-      form.replaceWith(done);
+      if (!FORM_KEY || FORM_KEY.indexOf("__") === 0) {
+        var body = message + "\n\n" + name + "\n" + email + (phone ? "\n" + phone : "");
+        window.location.href = "mailto:" + ORG_EMAIL + "?subject=" + encodeURIComponent("Website: " + topic) + "&body=" + encodeURIComponent(body);
+        return showDone("");
+      }
+
+      setSending(true);
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: FORM_KEY,
+          subject: "New website message: " + topic,
+          from_name: "PGCCDC website",
+          name: name,
+          email: email,
+          phone: phone || "Not provided",
+          topic: topic,
+          message: message
+        })
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (r) {
+            if (!res.ok || !r.success) throw new Error(r.message || res.statusText);
+          });
+        })
+        .then(function () {
+          setSending(false);
+          form.reset();
+          showDone(email);
+        })
+        .catch(function () {
+          setSending(false);
+          showAlert();
+        });
     });
   }
 })();

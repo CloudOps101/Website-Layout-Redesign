@@ -43,3 +43,4 @@ _crawl/
 
 # local tooling
 .claude/
+!.env.example
