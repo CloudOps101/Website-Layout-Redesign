@@ -89,5 +89,4 @@ The site is built to deploy on **Vercel's free plan** under the client's own acc
 
 1. Import this repository at vercel.com/new. The framework is detected automatically.
 2. Add the domain `princegeorges-countycdc.org` under **Project → Domains**.
-3. Update the DNS records shown by Vercel at the domain registrar.
-4. Remove `PreviewBar` from `src/app/layout.tsx` before going live.
+3. Update the DNS records shown by Vercel at the domain registrar (GoDaddy). Change only the `@` A record and the `www` CNAME; the MX, TXT and Microsoft 365 records run the organization's email and must stay as they are.

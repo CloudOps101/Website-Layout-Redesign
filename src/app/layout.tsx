@@ -4,7 +4,6 @@ import "./globals.css";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { PreviewBar } from "@/components/preview-bar";
 import { RevealObserver } from "@/components/reveal";
 import { org } from "@/content/site";
 import { siteUrl } from "@/content/site-url";
@@ -89,7 +88,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }}
         />
-        <PreviewBar />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}

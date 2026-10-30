@@ -44,3 +44,6 @@ _crawl/
 # local tooling
 .claude/
 !.env.example
+
+# Squarespace asset download (source files, not part of the site)
+Prince George's County Community Development Corporation_files/

@@ -40,7 +40,7 @@ def font(name, size, axes=None):
 
 # ---------------------------------------------------------------- icons
 logo = Image.open(ROOT / "public" / "logo-pgccdc.png").convert("RGBA")
-mark = logo.crop((0, 0, 52, logo.height))
+mark = logo.crop((0, 0, round(logo.width * 52 / 314), logo.height))  # the building mark, left of the wordmark
 mark = mark.crop(mark.getbbox())  # trim transparent edges
 
 
@@ -57,7 +57,6 @@ def icon(size, radius_ratio=0.22, pad_ratio=0.16):
     return canvas
 
 
-# The source logo is only 105px tall, so icons stop at 192px to stay crisp
 icon(192).save(APP / "icon.png")
 # Apple icons are shown on a square tile; iOS applies its own rounding
 apple = icon(180, radius_ratio=0, pad_ratio=0.14)
@@ -91,7 +90,7 @@ og = Image.alpha_composite(og.convert("RGBA"), glow.filter(ImageFilter.GaussianB
 
 d = ImageDraw.Draw(og)
 white_logo = Image.open(ROOT / "public" / "logo-pgccdc-white.png").convert("RGBA")
-white_logo = white_logo.resize((int(white_logo.width * 1.15), int(white_logo.height * 1.15)), Image.LANCZOS)
+white_logo = white_logo.resize((361, round(361 * white_logo.height / white_logo.width)), Image.LANCZOS)
 og.alpha_composite(white_logo, (72, 64))
 
 eyebrow = font("jakarta.ttf", 19, {"Weight": 700})

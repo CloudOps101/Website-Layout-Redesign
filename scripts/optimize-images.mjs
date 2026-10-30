@@ -55,11 +55,18 @@ for (const [name, id] of Object.entries(unsplash)) {
   await sharp(buf).resize({ width: 1800, withoutEnlargement: true }).webp(opts).toFile(`${OUT}/${name}.webp`);
   console.log("unsplash", name);
 }
-// Logo: colour + white (for dark surfaces) versions
-await sharp("_crawl/img/logo-orig.png").toFile("public/logo-pgccdc.png");
-await sharp("_crawl/img/logo-orig.png").ensureAlpha()
-  .composite([{ input: { create: { width: 314, height: 105, channels: 4, background: "#ffffff" } }, blend: "in" }])
-  .png().toFile("public/logo-pgccdc-white.png");
+// Logo: colour + white (for dark surfaces) versions, at 2x of the 314x105 display size.
+// Source is the 300 PPI logo file from PGCCDC's Squarespace library.
+const logo = sharp("_crawl/img/logo-hires.png").resize({ width: 628, height: 210, fit: "contain", background: "#0000" });
+await logo.clone().png({ compressionLevel: 9 }).toFile("public/logo-pgccdc.png");
+// White version: coloured pixels become white, the logo's white details (the building's windows) become see-through
+const { data, info } = await logo.clone().ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+for (let i = 0; i < data.length; i += 4) {
+  const ink = 255 - Math.min(data[i], data[i + 1], data[i + 2]);
+  data[i + 3] = Math.round((data[i + 3] * ink) / 255);
+  data[i] = data[i + 1] = data[i + 2] = 255;
+}
+await sharp(data, { raw: info }).png({ compressionLevel: 9 }).toFile("public/logo-pgccdc-white.png");
 await writeFile(`${OUT}/CREDITS.md`, "# Image credits\n\nStock photos: Unsplash (free Unsplash License), ids:\n\n" +
   Object.entries(unsplash).map(([n, id]) => `- ${n}.webp — https://images.unsplash.com/photo-${id}`).join("\n") +
   "\n\nAll other images are from the current PGCCDC website.\n");
