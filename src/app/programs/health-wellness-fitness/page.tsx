@@ -4,6 +4,7 @@ import { Apple, Brain, CalendarDays, HeartPulse, MapPin, Mic, Sprout, Stethoscop
 
 import { ArrowLink, ButtonLink, CtaBand, Eyebrow, PageHero, SectionHeader } from "@/components/ui";
 
+import mensHealthEvent from "@/assets/img/mens-health-event.webp";
 import fitnessClass from "@/assets/img/fitness-class.webp";
 import seniorsWalking from "@/assets/img/seniors-walking.webp";
 import doctorChild from "@/assets/img/doctor-child.webp";
@@ -75,6 +76,12 @@ export default function HealthPage() {
             </div>
           </div>
         </div>
+        <figure className="container-site mt-14 lg:mt-20" data-reveal>
+          <div className="overflow-hidden rounded-[var(--radius-xl)]">
+            <Image src={mensHealthEvent} alt="A speaker with a microphone addressing seated attendees at a men's health event" placeholder="blur" sizes="(min-width:1280px) 1200px, 100vw" className="w-full" />
+          </div>
+          <figcaption className="mt-3 text-sm text-ink-soft">A men&apos;s health event, June 2025.</figcaption>
+        </figure>
       </section>
 
       {/* Focus areas */}

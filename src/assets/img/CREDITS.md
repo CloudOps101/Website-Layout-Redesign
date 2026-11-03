@@ -22,3 +22,5 @@ Stock photos: Unsplash (free Unsplash License), ids:
 - produce-basket.webp — https://images.unsplash.com/photo-1635774855717-0aec182f92cc
 
 All other images are from the current PGCCDC website.
+
+Photos supplied by PGCCDC (November 2026): mens-health-event, tv-program, film-production, shoe-repair-lab, shoe-repair-team. Location data is removed.

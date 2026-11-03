@@ -8,6 +8,17 @@ import { CtaBand, Eyebrow, PageHero, SectionHeader } from "@/components/ui";
 import teamHands from "@/assets/img/team-hands.webp";
 import communityGarden from "@/assets/img/community-garden.webp";
 import seniorsWalking from "@/assets/img/seniors-walking.webp";
+import tvProgram from "@/assets/img/tv-program.webp";
+import filmProduction from "@/assets/img/film-production.webp";
+import shoeRepairLab from "@/assets/img/shoe-repair-lab.webp";
+import shoeRepairTeam from "@/assets/img/shoe-repair-team.webp";
+
+const moments = [
+  { image: tvProgram, alt: "A panel on a television studio set, with a PGCCDC table cover in front of the guests", caption: "A PGCCDC program on PGC TV" },
+  { image: filmProduction, alt: "A film crew setting up cameras and lights in an office", caption: "Behind the scenes on a film production" },
+  { image: shoeRepairLab, alt: "Two people working at tables of shoes beside the Shoe Repair Academy Lab bus", caption: "Shoe restoration at the Shoe Repair Academy Lab" },
+  { image: shoeRepairTeam, alt: "Three men standing together in front of the Shoe Repair Academy Lab bus", caption: "With the Shoe Repair Academy Lab" },
+];
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
@@ -110,6 +121,25 @@ export default function AboutPage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* Moments */}
+      <section aria-labelledby="moments-title" className="section-y bg-blue-50">
+        <div className="container-site">
+          <SectionHeader id="moments-title" eyebrow="In the community" title="Out in the county, with our neighbors." />
+          <ul className="mt-12 grid grid-cols-2 gap-5 lg:grid-cols-4">
+            {moments.map((m, i) => (
+              <li key={m.caption} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}>
+                <figure>
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)]">
+                    <Image src={m.image} alt={m.alt} fill placeholder="blur" sizes="(min-width:1024px) 22vw, 45vw" className="object-cover" />
+                  </div>
+                  <figcaption className="mt-3 text-sm text-ink-soft">{m.caption}</figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
