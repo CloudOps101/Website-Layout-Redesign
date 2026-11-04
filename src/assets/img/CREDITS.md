@@ -23,4 +23,4 @@ Stock photos: Unsplash (free Unsplash License), ids:
 
 All other images are from the current PGCCDC website.
 
-Photos supplied by PGCCDC (November 2026): mens-health-event, tv-program, film-production, shoe-repair-lab, shoe-repair-team, athletes-awards-dinner, ai-conference-booth, ai-conference-team, ai-conference-banner. Location data is removed.
+Photos supplied by PGCCDC (November 2026): mens-health-event, tv-program, film-production, shoe-repair-lab, shoe-repair-team, athletes-awards-dinner, ai-conference-booth, ai-conference-team, ai-conference-banner, pgccdc-collage (web address line removed at the client's request). Location data is removed.

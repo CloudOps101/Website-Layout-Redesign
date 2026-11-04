@@ -16,6 +16,7 @@ import athletesAwardsDinner from "@/assets/img/athletes-awards-dinner.webp";
 import aiConferenceBooth from "@/assets/img/ai-conference-booth.webp";
 import aiConferenceBanner from "@/assets/img/ai-conference-banner.webp";
 import aiConferenceTeam from "@/assets/img/ai-conference-team.webp";
+import pgccdcCollage from "@/assets/img/pgccdc-collage.webp";
 
 const moments = [
   { image: tvProgram, alt: "A panel on a television studio set, with a PGCCDC table cover in front of the guests", caption: "Sponsored Community County Executive Forum" },
@@ -148,6 +149,9 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
+          <div data-reveal className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-[var(--radius-xl)]">
+            <Image src={pgccdcCollage} alt="A PGCCDC collage of mixed-use neighborhood streets, with the PGCCDC and National AI Academy logos" placeholder="blur" sizes="(min-width:1024px) 896px, 100vw" className="w-full" />
+          </div>
         </div>
       </section>
 

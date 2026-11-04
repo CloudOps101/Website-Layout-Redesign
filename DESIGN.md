@@ -115,7 +115,7 @@ Brand navy and blue are **sampled directly from the PGCCDC logo**. Gold adds war
 
 1. **Check payee and mailing address.** Confirmed by the client.
 2. **MIDs video:** please send a working link.
-3. **Community photos.** Full-size originals would look sharper. The Executive Director opted not to show leadership or board photos, so monograms stay. The collage graphic is on hold because its web address looks misspelled.
+3. **Community photos.** Full-size originals would look sharper. The Executive Director opted not to show leadership or board photos, so monograms stay. Event photos are approved; the opt-out covers profile photos only.
 4. **Email addresses.** The footer of the current site shows `info@ppgccdc.com`, which doesn't match the domain. The new site uses `tolsonbanner@princegeorges-countycdc.org`. Please confirm which to use.
 5. **Board member name.** Confirmed as John "Peterbug" Matthews.
 6. **Online giving.** If wanted, choose a provider (e.g. Zeffy, PayPal Giving or Stripe) for the next milestone.
@@ -130,3 +130,4 @@ Brand navy and blue are **sampled directly from the PGCCDC logo**. Gold adds war
 | 2026-10-26 | Executive Director: take out any reference to hyperscale data centers | Removed the data-center comparison, chart and infographic from the homepage and MID page. The MID is now presented on its own merits: jobs, local hiring, revenue, healthcare hub, training and clean energy. |
 | 2026-10-27 | Temporarily remove the Deputy Director/COO profile from About, keeping it to add back later | Profile removed from the site and saved, unpublished, in `src/content/archive.ts`. Leadership shows a single wide card. To restore, move it back into `leadership` in `src/content/site.ts`. |
 | 2026-11-03 | Spelling is Peterbug; no leadership or board photos; captions supplied for event photos | Corrected the board bio, kept monograms, updated the About gallery captions and added the captioned photos. |
+| 2026-11-03 | The photo opt-out covers profile photos only; remove the web address line from the collage | Removed the misspelled line and added the collage to the About page. |
