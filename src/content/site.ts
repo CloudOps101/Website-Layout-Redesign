@@ -171,9 +171,9 @@ export const board = [
     bio: "Alma McPherson holds a Bachelor of Science from the University of the District of Columbia and a Master of Science from Howard University. She has built a distinguished career in early childhood education and health care, spending more than 20 years serving children with disabilities and the families of returning citizens. She has devoted much of her career to expanding access to STEM education for young learners. She has also worked in public and mental health settings, advocating for policy change at the state and federal levels.",
   },
   {
-    name: "John “Petersburg” Matthews",
+    name: "John “Peterbug” Matthews",
     initials: "JM",
-    bio: "John “Petersburg” Matthews studied sociology at the University of the District of Columbia and attended the Oklahoma Technical Institute. Guided by the Booker T. Washington philosophy of equipping young people with a marketable trade, he taught leather goods and shoe repair in DC public schools for more than 20 years. He has also been a community and political activist for over two decades. Today he leads the Petersburg Shoe Academy, which teaches entrepreneurial skills to young adults across the DMV.",
+    bio: "John “Peterbug” Matthews studied sociology at the University of the District of Columbia and attended the Oklahoma Technical Institute. Guided by the Booker T. Washington philosophy of equipping young people with a marketable trade, he taught leather goods and shoe repair in DC public schools for more than 20 years. He has also been a community and political activist for over two decades. Today he leads the Peterbug Shoe Academy, which teaches entrepreneurial skills to young adults across the DMV.",
   },
   {
     name: "Linwood Ferguson, CPA",

@@ -12,12 +12,20 @@ import tvProgram from "@/assets/img/tv-program.webp";
 import filmProduction from "@/assets/img/film-production.webp";
 import shoeRepairLab from "@/assets/img/shoe-repair-lab.webp";
 import shoeRepairTeam from "@/assets/img/shoe-repair-team.webp";
+import athletesAwardsDinner from "@/assets/img/athletes-awards-dinner.webp";
+import aiConferenceBooth from "@/assets/img/ai-conference-booth.webp";
+import aiConferenceBanner from "@/assets/img/ai-conference-banner.webp";
+import aiConferenceTeam from "@/assets/img/ai-conference-team.webp";
 
 const moments = [
-  { image: tvProgram, alt: "A panel on a television studio set, with a PGCCDC table cover in front of the guests", caption: "A PGCCDC program on PGC TV" },
-  { image: filmProduction, alt: "A film crew setting up cameras and lights in an office", caption: "Behind the scenes on a film production" },
-  { image: shoeRepairLab, alt: "Two people working at tables of shoes beside the Shoe Repair Academy Lab bus", caption: "Shoe restoration at the Shoe Repair Academy Lab" },
-  { image: shoeRepairTeam, alt: "Three men standing together in front of the Shoe Repair Academy Lab bus", caption: "With the Shoe Repair Academy Lab" },
+  { image: tvProgram, alt: "A panel on a television studio set, with a PGCCDC table cover in front of the guests", caption: "Sponsored Community County Executive Forum" },
+  { image: filmProduction, alt: "A film crew setting up cameras and lights in an office", caption: "Film production for the documentary “Let Me Put This BUG In Your Ear”" },
+  { image: shoeRepairLab, alt: "Two people working at tables of shoes beside the Shoe Repair Academy Lab bus", caption: "Shoe Restoration Program for Seniors" },
+  { image: shoeRepairTeam, alt: "Three men standing together in front of the Shoe Repair Academy Lab bus", caption: "Shoe Restoration Program for Seniors" },
+  { image: athletesAwardsDinner, alt: "Three men in formal wear at an awards dinner", caption: "Athletes In Action Awards Dinner", tall: true },
+  { image: aiConferenceBanner, alt: "A man standing beside a National AI Academy banner at a conference", caption: "National School Board AI Conference", tall: true },
+  { image: aiConferenceBooth, alt: "Two men standing together at a conference exhibit hall", caption: "National School Board AI Conference", tall: true },
+  { image: aiConferenceTeam, alt: "A man and a woman in front of a National AI Academy banner at a conference", caption: "National School Board AI Conference", tall: true },
 ];
 
 export const metadata: Metadata = {
@@ -130,9 +138,9 @@ export default function AboutPage() {
           <SectionHeader id="moments-title" eyebrow="In the community" title="Out in the county, with our neighbors." />
           <ul className="mt-12 grid grid-cols-2 gap-5 lg:grid-cols-4">
             {moments.map((m, i) => (
-              <li key={m.caption} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}>
+              <li key={m.alt} data-reveal style={{ "--reveal-delay": `${(i % 4) * 90}ms` } as React.CSSProperties}>
                 <figure>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)]">
+                  <div className={`relative overflow-hidden rounded-[var(--radius-lg)] ${m.tall ? "aspect-[3/4]" : "aspect-[4/3]"}`}>
                     <Image src={m.image} alt={m.alt} fill placeholder="blur" sizes="(min-width:1024px) 22vw, 45vw" className="object-cover" />
                   </div>
                   <figcaption className="mt-3 text-sm text-ink-soft">{m.caption}</figcaption>
@@ -194,7 +202,7 @@ export default function AboutPage() {
   );
 }
 
-/** Monogram used until headshots are supplied. */
+/** Monogram shown in place of a headshot. */
 function Avatar({ initials, large }: { initials: string; large?: boolean }) {
   return (
     <span
