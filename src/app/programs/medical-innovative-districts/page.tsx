@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Building2, Check, GraduationCap, HeartPulse, MonitorSmartphone, Recycle, Users } from "lucide-react";
+import { Building2, Check, GraduationCap, HeartPulse, MonitorSmartphone, Users } from "lucide-react";
 
 import { CtaBand, Eyebrow, PageHero, SectionHeader } from "@/components/ui";
 
@@ -8,10 +8,10 @@ import medicalTeam from "@/assets/img/medical-team.webp";
 import nursePortrait from "@/assets/img/nurse-portrait.webp";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/programs/medical-innovation-districts" },
-  title: "Medical Innovation Districts",
+  alternates: { canonical: "/programs/medical-innovative-districts" },
+  title: "Medical Innovative Districts",
   description:
-    "A Medical Innovation District would bring a 200-bed healthcare hub, free workforce training and 2,430+ career-level jobs with local hiring to Prince George's County.",
+    "A Medical Innovative District would bring a 200-bed healthcare hub, free workforce training and 2,430+ career-level jobs with local hiring to Prince George's County.",
 };
 
 const components = [
@@ -30,24 +30,19 @@ const components = [
     title: "Last-Mile AI Clinics",
     text: "A network of 9 small community computing and training centers.",
   },
-  {
-    icon: Recycle,
-    title: "Waste-to-Energy Power",
-    text: "An on-site facility converts 300 tons of daily trash into clean hydrogen fuel.",
-  },
 ];
 
 export default function MidPage() {
   return (
     <>
       <PageHero
-        eyebrow="Medical Innovation Districts"
+        eyebrow="Medical Innovative Districts"
         title={
           <>
-            Health care, careers and clean energy, <span className="italic text-gold-300">close to home.</span>
+            Health care, careers and opportunity, <span className="italic text-gold-300">close to home.</span>
           </>
         }
-        intro="PGCCDC champions a Medical Innovation District (MID) in Prince George's County: a healthcare hub, free workforce training and career-level jobs for local residents, powered by clean, on-site energy."
+        intro="PGCCDC champions a Medical Innovative District in Prince George's County: a healthcare hub, free workforce training and career-level jobs for local residents."
         image={medicalTeam}
         alt="A team of doctors and nurses walking down a bright hospital corridor"
         crumbs={[{ label: "Signature Programs", href: "/programs" }]}
@@ -75,15 +70,15 @@ export default function MidPage() {
         </div>
       </section>
 
-      {/* What the MID delivers */}
+      {/* What the district delivers */}
       <section aria-labelledby="delivers-title" className="section-y bg-white">
         <div className="container-site grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeader
               id="delivers-title"
-              eyebrow="What the MID delivers"
+              eyebrow="What a Medical Innovative District delivers"
               title="Good jobs and better care, built around residents."
-              intro="A Medical Innovation District brings health care, training and career-level jobs into the heart of the community, with hiring commitments that keep opportunity local."
+              intro="A Medical Innovative District brings health care, training and career-level jobs into the heart of the community, with hiring commitments that keep opportunity local."
             />
             <dl data-reveal className="mt-10 grid grid-cols-2 gap-4">
               {[
@@ -112,7 +107,7 @@ export default function MidPage() {
               </span>
               <div>
                 <p className="eyebrow text-gold-300">At a glance</p>
-                <h3 className="font-display text-2xl font-medium">Medical Innovation District</h3>
+                <h3 className="font-display text-2xl font-medium">Medical Innovative District</h3>
               </div>
             </div>
             <ul className="relative mt-8 space-y-5">
@@ -130,10 +125,10 @@ export default function MidPage() {
         <div className="container-site">
           <SectionHeader
             id="components-title"
-            eyebrow="Key components of the MID"
-            title="What a Medical Innovation District brings home."
+            eyebrow="Key components"
+            title="What a Medical Innovative District brings home."
           />
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-12 grid gap-5 md:grid-cols-3">
             {components.map((c, i) => (
               <li
                 key={c.title}
@@ -164,16 +159,16 @@ export default function MidPage() {
                 <Users aria-hidden className="size-5 text-blue-700" />
                 <p className="font-semibold text-navy-900">75% local hiring</p>
               </div>
-              <p className="mt-1 text-sm text-ink-soft">of MID jobs reserved for Prince George&apos;s County residents.</p>
+              <p className="mt-1 text-sm text-ink-soft">of Medical Innovative District jobs reserved for Prince George&apos;s County residents.</p>
             </div>
           </div>
           <div data-reveal style={{ "--reveal-delay": "120ms" } as React.CSSProperties}>
             <Eyebrow>A community-centered solution</Eyebrow>
             <h2 id="community-title" className="text-h2 mt-5 font-medium text-navy-900">
-              Careers, care and clean power, <span className="italic text-blue-600">for the people who live here.</span>
+              Careers and care, <span className="italic text-blue-600">for the people who live here.</span>
             </h2>
             <p className="text-lead mt-5 text-ink-soft">
-              Every part of the MID is designed with residents in mind, so the benefits stay in Prince George&apos;s
+              Every part of the Medical Innovative District is designed with residents in mind, so the benefits stay in Prince George&apos;s
               County.
             </p>
             <ul className="mt-8 space-y-4">
@@ -181,7 +176,6 @@ export default function MidPage() {
                 "Career-level jobs with mandated local hiring commitments",
                 "A hospital and specialty clinics for neighborhoods that need them most",
                 "Free tech and healthcare training that leads to guaranteed interviews",
-                "Clean hydrogen fuel made on-site from 300 tons of daily waste",
               ].map((t) => (
                 <li key={t} className="flex gap-3 text-lg text-navy-900">
                   <Check aria-hidden className="mt-1.5 size-5 shrink-0 text-leaf-600" />
@@ -193,28 +187,7 @@ export default function MidPage() {
         </div>
       </section>
 
-      {/* Video */}
-      <section aria-labelledby="video-title" className="section-y bg-white">
-        <div className="container-site">
-          <div className="mx-auto max-w-4xl text-center" data-reveal>
-            <Eyebrow className="justify-center">Watch</Eyebrow>
-            <h2 id="video-title" className="text-h2 mt-4 font-medium text-navy-900">
-              The MID story, in motion.
-            </h2>
-          </div>
-          <div data-reveal className="on-dark relative mx-auto mt-10 flex aspect-video max-w-5xl items-center justify-center overflow-hidden rounded-[var(--radius-xl)] bg-navy-950 text-center text-white">
-            <Image src={medicalTeam} alt="" fill placeholder="blur" sizes="(min-width:1024px) 64rem, 100vw" className="object-cover opacity-30" />
-            <div className="relative px-6">
-              <p className="eyebrow text-gold-300">Video coming soon</p>
-              <p className="mx-auto mt-3 max-w-md font-display text-2xl md:text-3xl">
-                Our Medical Innovation District video will appear here.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CtaBand title="Stand with the Medical Innovation District." text="Partners, residents and officials: help us build a healthier, more prosperous future for Prince George's County." />
+      <CtaBand title="Stand with the Medical Innovative District." text="Partners, residents and officials: help us build a healthier, more prosperous future for Prince George's County." />
     </>
   );
 }

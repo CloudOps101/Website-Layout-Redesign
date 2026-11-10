@@ -4,7 +4,7 @@ import { programs } from "@/content/site";
 import { siteUrl } from "@/content/site-url";
 
 // Update this date when page content changes meaningfully
-const lastModified = "2026-10-27";
+const lastModified = "2026-11-10";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: [string, number, MetadataRoute.Sitemap[number]["changeFrequency"]][] = [

@@ -360,20 +360,20 @@ function MidSpotlight() {
           <SectionHeader
             id="mid-title"
             light
-            eyebrow="Medical Innovation Districts"
+            eyebrow="Medical Innovative Districts"
             title={
               <>
-                Health care, careers and clean energy, <span className="italic text-gold-300">close to home.</span>
+                Health care, careers and opportunity, <span className="italic text-gold-300">close to home.</span>
               </>
             }
-            intro="PGCCDC champions a Medical Innovation District for Prince George's County: a healthcare hub, free workforce training and career-level jobs for local residents, powered by clean, on-site energy."
+            intro="PGCCDC champions a Medical Innovative District for Prince George's County: a healthcare hub, free workforce training and career-level jobs for local residents."
           />
           <ul data-reveal className="mt-10 grid grid-cols-2 gap-3 sm:gap-4">
             {[
               ["200-bed", "healthcare hub serving 125,000+ underserved residents"],
               ["1,200", "residents trained free each year in tech and healthcare"],
-              ["300 tons", "of daily waste turned into clean hydrogen fuel"],
-              ["All 14", "County AI Task Force recommendations the MID aligns with"],
+              ["9", "last-mile AI clinics for community computing and training"],
+              ["All 14", "County AI Task Force recommendations the district aligns with"],
             ].map(([n, t]) => (
               <li key={n} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:p-5">
                 <span className="block font-display text-3xl font-semibold text-gold-300">{n}</span>
@@ -382,19 +382,19 @@ function MidSpotlight() {
             ))}
           </ul>
           <div className="mt-10" data-reveal>
-            <ButtonLink href="/programs/medical-innovation-districts" variant="gold">
-              Explore the MID plan
+            <ButtonLink href="/programs/medical-innovative-districts" variant="gold">
+              Explore the Medical Innovative District
             </ButtonLink>
           </div>
         </div>
         <div className="rounded-[var(--radius-xl)] border border-white/10 bg-white/[0.04] p-7 backdrop-blur md:p-10">
           <h3 className="font-display text-2xl font-medium">By the numbers</h3>
-          <p className="mt-1 text-sm text-white/70">What a Medical Innovation District brings to the county</p>
+          <p className="mt-1 text-sm text-white/70">What a Medical Innovative District brings to the county</p>
           <dl data-reveal className="mt-8 divide-y divide-white/10">
             {[
               ["2,430+", "direct jobs created", "Career-level jobs with mandated local hiring."],
               ["$76M", "projected annual tax revenue", "New revenue for Prince George's County."],
-              ["75%", "local hiring", "Of MID jobs reserved for county residents, including 40% from Landover."],
+              ["75%", "local hiring", "Of Medical Innovative District jobs reserved for county residents, including 40% from Landover."],
             ].map(([n, t, d]) => (
               <div key={t} className="py-6 first:pt-0 last:pb-0">
                 <dt className="eyebrow text-gold-300">{t}</dt>

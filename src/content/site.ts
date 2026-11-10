@@ -23,8 +23,8 @@ export const org = {
     "PGCCDC exists because Prince George's County residents deserve a real voice in decisions about their health, their neighborhoods, and their future. We connect residents to better health outcomes, healthy food access, and fitness opportunities, alongside economic and educational programs that open doors to real opportunity.",
   address: { line1: "11720 Capstan Drive", line2: "Upper Marlboro, MD 20772" },
   mapQuery: "11720 Capstan Drive, Upper Marlboro, MD 20772",
-  phone: "202-413-6431",
-  phoneHref: "tel:+12024136431",
+  phone: "202-209-4192",
+  phoneHref: "tel:+12022094192",
   email: "tolsonbanner@princegeorges-countycdc.org",
   emailHref:
     "mailto:tolsonbanner@princegeorges-countycdc.org?cc=byeldell%40princegeorges-countycdc.org&subject=Reaching%20Out%20After%20Visiting%20the%20Website",
@@ -42,13 +42,13 @@ export type NavItem = { label: string; href: string; description?: string };
 
 export const programs = [
   {
-    slug: "medical-innovation-districts",
-    href: "/programs/medical-innovation-districts",
-    title: "Medical Innovation Districts",
-    short: "MIDs",
+    slug: "medical-innovative-districts",
+    href: "/programs/medical-innovative-districts",
+    title: "Medical Innovative Districts",
+    short: "Medical Innovative Districts",
     tag: "Economic & health development",
     summary:
-      "A healthcare hub, free workforce training and 2,430+ career-level jobs with local hiring, powered by clean, on-site energy.",
+      "A healthcare hub, free workforce training and 2,430+ career-level jobs with local hiring.",
     image: bloodPressure,
     alt: "A health worker checking an older man's blood pressure",
   },

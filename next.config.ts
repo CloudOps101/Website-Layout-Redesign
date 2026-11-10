@@ -20,7 +20,9 @@ const nextConfig: NextConfig = {
       { source: "/projects-1", destination: "/partnerships", permanent: true },
       { source: "/projects-2-1", destination: "/programs/health-wellness-fitness", permanent: true },
       { source: "/projects-2-1-1", destination: "/partnerships#naia", permanent: true },
-      { source: "/projects-2-1-1-2", destination: "/programs/medical-innovation-districts", permanent: true },
+      { source: "/projects-2-1-1-2", destination: "/programs/medical-innovative-districts", permanent: true },
+      // Page renamed from "Medical Innovation Districts" in November 2026
+      { source: "/programs/medical-innovation-districts", destination: "/programs/medical-innovative-districts", permanent: true },
       { source: "/projects-3", destination: "/programs/muzik-xpose-radio", permanent: true },
       { source: "/new-dropdown", destination: "/programs", permanent: true },
     ];

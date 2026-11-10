@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/programs" },
   title: "Signature Programs",
   description:
-    "PGCCDC's signature programs: Medical Innovation Districts, Health, Wellness & Fitness, Muzik Xpose' Radio and Artist in Residence.",
+    "PGCCDC's signature programs: Medical Innovative Districts, Health, Wellness & Fitness, Muzik Xpose' Radio and Artist in Residence.",
 };
 
 const highlights: Record<string, string[]> = {
-  "medical-innovation-districts": ["2,430+ direct local jobs", "200-bed healthcare hub", "Free workforce training"],
+  "medical-innovative-districts": ["2,430+ direct local jobs", "200-bed healthcare hub", "Free workforce training"],
   "health-wellness-fitness": ["Cardiovascular, diabetes & brain health", "Deep Roots Farm nutrition", "Links to local services"],
   "muzik-xpose-radio": ["Live online radio", "Satire, live music, real talk", "Health Notes podcast"],
   "artist-in-residence": ["Filmmaker Monty Ross", "Peterbug documentary", "Community storytelling"],

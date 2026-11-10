@@ -114,13 +114,13 @@ Brand navy and blue are **sampled directly from the PGCCDC logo**. Gold adds war
 ## 9. Open items for the client
 
 1. **Check payee and mailing address.** Confirmed by the client.
-2. **MIDs video:** please send a working link.
+2. **Medical Innovative Districts video:** removed until a new video is available.
 3. **Community photos.** Full-size originals would look sharper. The Executive Director opted not to show leadership or board photos, so monograms stay. Event photos are approved; the opt-out covers profile photos only.
 4. **Email addresses.** The footer of the current site shows `info@ppgccdc.com`, which doesn't match the domain. The new site uses `tolsonbanner@princegeorges-countycdc.org`. Please confirm which to use.
 5. **Board member name.** Confirmed as John "Peterbug" Matthews.
 6. **Online giving.** If wanted, choose a provider (e.g. Zeffy, PayPal Giving or Stripe) for the next milestone.
 7. **Contact form.** Connected through Web3Forms.
-8. **NAIA flyer.** It states NAIA was "established through PGCCDC". Please confirm whether to keep the flyer image, given the due-diligence concern.
+8. **NAIA flyer.** Keep the current NAIA content as it is, with nothing added.
 9. **X (Twitter) link.** The current site links to `twitter.com/MuXpose`, but that account doesn't exist, so it was removed. Send the correct handle if there is one.
 
 ## 10. Client feedback log
@@ -131,3 +131,4 @@ Brand navy and blue are **sampled directly from the PGCCDC logo**. Gold adds war
 | 2026-10-27 | Temporarily remove the Deputy Director/COO profile from About, keeping it to add back later | Profile removed from the site and saved, unpublished, in `src/content/archive.ts`. Leadership shows a single wide card. To restore, move it back into `leadership` in `src/content/site.ts`. |
 | 2026-11-03 | Spelling is Peterbug; no leadership or board photos; captions supplied for event photos | Corrected the board bio, kept monograms, updated the About gallery captions and added the captioned photos. |
 | 2026-11-03 | The photo opt-out covers profile photos only; remove the web address line from the collage | Removed the misspelled line and added the collage to the About page. |
+| 2026-11-10 | Rename to Medical Innovative Districts everywhere; remove the inaccurate waste-to-energy claim; new public phone number (voicemail); remove the video; keep NAIA content as is | Renamed the page, its address (old address redirects) and every mention, including the MID abbreviation; removed the Waste-to-Energy Power card and every 300-tons and clean-energy claim; updated the phone number site-wide; removed the video panel. |
