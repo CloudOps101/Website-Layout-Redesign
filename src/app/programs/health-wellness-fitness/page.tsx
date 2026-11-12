@@ -80,7 +80,7 @@ export default function HealthPage() {
           <div className="overflow-hidden rounded-[var(--radius-xl)]">
             <Image src={mensHealthEvent} alt="A speaker with a microphone addressing seated attendees at Men's Health Day" placeholder="blur" sizes="(min-width:1280px) 1200px, 100vw" className="w-full" />
           </div>
-          <figcaption className="mt-3 text-sm text-ink-soft">Men&apos;s Health Day with community partners at Brightpoint Wellness Center, Landover, June 28, 2025.</figcaption>
+          <figcaption className="mt-3 text-sm text-ink-soft">Men&apos;s Health Day, June 28, 2025, at Brightpoint Wellness Center in Landover. PGCCDC partnered with 100 Black Men, Hope House Treatment Centers, Bright Point Wellness and M-NCPPC Parks &amp; Recreation.</figcaption>
         </figure>
       </section>
 
